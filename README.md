@@ -2,7 +2,7 @@
 
 [Enunciado](https://github.com/cassa10/challenge-api/blob/main/doc/software-engineer_challenge-1.pdf)
 
-# Pre-Requirements:
+# Pre-Requirements
 
 - Python 3 
 - Pip
@@ -17,7 +17,7 @@
     >venv\Scripts\activate
     >pip install django
 
-# Set up and Start Server:
+# Set up and Start Server
 
 - Cd to repo main folder and then sucursal_crud.
 
@@ -35,4 +35,55 @@
 - Start server command:
     >python manage.py runserver
 
-- Then go to browser at "http://localhost:8080"
+- Then go to "http://localhost:8000"
+
+
+# API Documentation
+
+Optional: If server is running, you could visit every endpoint with UI
+
+## Sucursal
+
+###  /api/sucursal
+
+- GET
+
+    Desc: Get all sucursals (paginated not contemplated)
+
+- POST 
+
+    Desc: Create new sucursal
+
+### /api/sucursal/<id\>
+
+- GET
+
+    Desc: Get sucursal with requested id
+
+- PUT
+
+    Desc: Update sucursal with requested id and data provided
+
+- DELETE
+
+    Desc: Delete sucursal with requested id (logic deleted not contemplated)
+
+    
+
+---------
+
+## Punto de Retiro 
+
+###  /api/puntoDeRetiro
+
+- GET
+
+- POST
+
+###  /api/puntoDeRetiro/<id\>
+
+- GET
+
+- PUT
+
+- DELETE
