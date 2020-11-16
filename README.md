@@ -17,8 +17,17 @@
     >venv\Scripts\activate
     >pip install django
 
-# Run Server:
+# Set up and Start Server:
 
-- Cd to repo main folder and then sucursal_crud
-- Execute command: >python manage.py runserver
+- Cd to repo main folder and then sucursal_crud.
+
+- Create admin user with command ">python manage.py createsuperuser" and complete inputs.
+
+- First time commands:
+    >python manage.py makemigrations
+    >python manage.py migrate
+
+- Start server command:
+    >python manage.py runserver
+
 - Then go to browser at "http://localhost:8080"
