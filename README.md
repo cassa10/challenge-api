@@ -7,6 +7,7 @@
 - Python 3 
 - Pip
 - Django
+- PostgreSQL
 
 
 # Installation
@@ -68,7 +69,7 @@ Optional: If server is running, you could visit every endpoint with UI
 
     Desc: Delete sucursal with requested id (logic deleted not contemplated)
 
-    
+
 
 ---------
 
