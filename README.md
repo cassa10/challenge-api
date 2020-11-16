@@ -21,7 +21,12 @@
 
 - Cd to repo main folder and then sucursal_crud.
 
-- Create admin user with command ">python manage.py createsuperuser" and complete inputs.
+- Create admin user with command: 
+    >python manage.py createsuperuser"
+    >Then complete inputs...
+
+- Run Unit Test with command: 
+    >python manage.py test --pattern="*Test.py"
 
 - First time commands:
     >python manage.py makemigrations
