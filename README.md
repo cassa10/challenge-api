@@ -71,7 +71,6 @@ Optional: If server is running, you could visit every endpoint with UI
 
 
 
----------
 
 ## Punto de Retiro 
 
@@ -88,3 +87,13 @@ Optional: If server is running, you could visit every endpoint with UI
 - PUT
 
 - DELETE
+
+## Query Near Node
+
+### /api/node/near
+
+- GET
+
+    Desc: Get the nearest node of requested position
+
+    
