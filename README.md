@@ -2,12 +2,13 @@
 
 [Enunciado](https://github.com/cassa10/challenge-api/blob/main/doc/software-engineer_challenge-1.pdf)
 
-# Pre-Requirements
+# Pre-Requirements and modules
 
 - Python 3 
 - Pip
 - Django
 - PostgreSQL
+- haversine
 
 
 # Installation

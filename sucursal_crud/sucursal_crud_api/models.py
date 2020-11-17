@@ -7,6 +7,11 @@ class Ubicacion(models.Model):
 
     def __str__(self):
         return f'{self.latitud}, {self.longitud}'
+    
+    def __eq__(self, obj):
+        if isinstance(obj, Ubicacion):
+                return (self.latitud == obj.latitud and self.longitud == obj.longitud)
+        return False
 
 class Horario(models.Model):
     DIAS = (
@@ -24,6 +29,13 @@ class Horario(models.Model):
 
     def __str__(self):
         return f'{self.DIAS[int(self.dia)][1]}|{self.apertura.strftime("%H:%M")}-{self.cierre.strftime("%H:%M")}'
+
+    def __eq__(self, obj):
+        if isinstance(obj, Horario):
+                return (self.dia == obj.dia 
+                    and self.apertura == obj.apertura 
+                    and self.cierre == obj.cierre)
+        return False
 
 class Nodo(models.Model):
     ubicacion = models.OneToOneField(Ubicacion, on_delete=models.CASCADE, verbose_name="Ubicacion")
