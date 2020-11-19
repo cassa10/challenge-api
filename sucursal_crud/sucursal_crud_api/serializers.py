@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import PuntoDeRetiro, Sucursal, Ubicacion, Horario
+from rest_framework.response import Response
+from .models import Nodo, PuntoDeRetiro, Sucursal, Ubicacion, Horario
 
 class HorarioSerializer(serializers.ModelSerializer):
     class Meta:
@@ -54,10 +55,8 @@ class PuntoDeRetiroSerializer(serializers.ModelSerializer):
         fields = ['id','nombre','capacidad','ubicacion']
     
     def create(self, validated_data):
-        
         ubicacion_data = validated_data.pop('ubicacion')
         ubicacion = Ubicacion.objects.create(**ubicacion_data)
-        
         puntoDeRetiro = PuntoDeRetiro.objects.create(**validated_data, ubicacion = ubicacion)
         return puntoDeRetiro
     
@@ -68,6 +67,30 @@ class PuntoDeRetiroSerializer(serializers.ModelSerializer):
         ubicacion.longitud = ubicacion_data.get('longitud', ubicacion.longitud)
 
         instance.capacidad = validated_data.get('capacidad', instance.capacidad)
+        instance.nombre = validated_data.get('nombre', instance.nombre)
+
+        instance.save()
+        return instance
+
+class NodoSerializer(serializers.ModelSerializer):
+    ubicacion = UbicacionSerializer()
+    class Meta:
+        model = Nodo
+        fields = ['id','nombre','ubicacion']
+
+    def create(self, validated_data):
+        ubicacion_data = validated_data.pop('ubicacion')
+        ubicacion = Ubicacion.objects.create(**ubicacion_data)
+        
+        nodo = Nodo.objects.create(**validated_data, ubicacion = ubicacion)
+        return nodo
+
+    def update(self, instance, validated_data):
+        ubicacion_data = validated_data.pop('ubicacion')
+        ubicacion = instance.ubicacion
+        ubicacion.latitud = ubicacion_data.get('latitud', ubicacion.latitud)
+        ubicacion.longitud = ubicacion_data.get('longitud', ubicacion.longitud)
+
         instance.nombre = validated_data.get('nombre', instance.nombre)
 
         instance.save()

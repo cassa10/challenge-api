@@ -9,6 +9,7 @@
 - Django
 - PostgreSQL
 - haversine
+- drf-yasg (Swagger not deprecatted)
 
 
 # Installation
@@ -91,9 +92,10 @@ Optional: If server is running, you could visit every endpoint with UI
 
 ## Query Near Node
 
-### /api/node/near
+### /api/nodo/cercano/<lat>/<lng>
 
 - GET
+    Parameters: "lat" y "lng"
 
     Desc: Get the nearest node of requested position
 

@@ -44,15 +44,15 @@ class Nodo(models.Model):
     def __str__(self):
         return self.nombre
 
-    class Meta:
-        abstract = True
-
 class Sucursal(Nodo):
     disponibilidad = models.OneToOneField(Horario, on_delete=models.CASCADE, verbose_name="Horario", default=1)
     direccion = models.CharField(max_length=100)
 
 class PuntoDeRetiro(Nodo):
     capacidad = models.IntegerField(validators=[MinValueValidator(1)])
+
+
+
 
 
 
