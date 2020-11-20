@@ -1,5 +1,5 @@
 from django.test import TestCase
-from sucursal_crud_api.distanciaGeo import DistanciaGeo
+from sucursal_crud_api.utils.distanciaGeo import DistanciaGeo
 from sucursal_crud_api.models import Ubicacion, Nodo
 
 class DistanciaGeoTest(TestCase):

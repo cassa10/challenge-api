@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status, generics, mixins
 from sucursal_crud_api.logger import logParamInfo
 from sucursal_crud_api.serializers import NodoSerializer
-from sucursal_crud_api.distanciaGeo import DistanciaGeo
+from sucursal_crud_api.utils.distanciaGeo import DistanciaGeo
 from sucursal_crud_api.models import Nodo, Ubicacion
 
 class NearNodeAPIView(generics.GenericAPIView, mixins.ListModelMixin):
