@@ -1,5 +1,5 @@
 from django.db import models
-from .Ubicacion import Ubicacion
+from .ubicacion import Ubicacion
 
 class Nodo(models.Model):
     ubicacion = models.OneToOneField(Ubicacion, on_delete=models.CASCADE, verbose_name="Ubicacion")

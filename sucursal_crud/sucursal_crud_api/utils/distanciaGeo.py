@@ -1,6 +1,6 @@
 import haversine as hs
 from haversine import Unit
-from .models import Ubicacion
+from sucursal_crud_api.models import Ubicacion
 
 class DistanciaGeo():
 
