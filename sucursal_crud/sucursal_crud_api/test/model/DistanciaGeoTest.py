@@ -43,5 +43,3 @@ class DistanciaGeoTest(TestCase):
         self.assertEquals(nodoPSM, self.calculadoraDistancia.getNodoCercano(nodos, ubicacionCercaDePSM))
 
         self.assertEquals(nodoMDQ, self.calculadoraDistancia.getNodoCercano(nodos, ubicacionCercaDeMDQ))
-
-        #self.assertEquals()
