@@ -19,15 +19,15 @@ def logParamInfo(source, **kwargs):
     
     logger.info(f' ({source.__class__.__name__}.{inspect.stack()[1][3]}) - Parameters: {params}')
 
-class NearNodeApiView(generics.GenericAPIView, mixins.ListModelMixin):
+class NearNodeAPIView(generics.GenericAPIView, mixins.ListModelMixin):
     serializer_class = NodoSerializer
     queryset = Nodo.objects.all()
     
     # If use expresion (lat and lng), when parameter is 0  => False
     def validateLocation(self, lat, lng):
         try:
-            lat = float(lat)
-            lng = float(lng)
+            float(lat)
+            float(lng)
             return True
         except:
             return False
@@ -37,20 +37,23 @@ class NearNodeApiView(generics.GenericAPIView, mixins.ListModelMixin):
         if not self.validateLocation(lat, lng):
             return Response("Invalid request data, try again with float values", 400)
 
-        reqUbicacion = Ubicacion(latitud = lat, longitud = lng)
+        reqUbicacion = Ubicacion(latitud = float(lat), longitud = float(lng))
         geoDistanceCalculator = DistanciaGeo()
-        geoDistanceCalculator.getNodoCercano(self.queryset, reqUbicacion)
-        nodo = None
-        #responseData = self.serializer_class(nodo).data
-        return Response("Not implemented", 200)
 
-class BaseApiView(APIView):
+        #Validate at least exist one node
+        if not Nodo.objects.exists():
+            return Response("It does not exist any node", 200)
+
+        nodo = geoDistanceCalculator.getNodoCercano(list(Nodo.objects.get_queryset()), reqUbicacion)
+        return Response(self.serializer_class(nodo).data, 200)
+
+class NodeAPIView(generics.GenericAPIView, mixins.ListModelMixin):
+    serializer_class = NodoSerializer
+    queryset = Nodo.objects.all()
+
     def get(self, request):
         logParamInfo(self, request = request)
-        return Response("Welcome to my api :D ! Available endpoints: [/api/sucursal," + 
-        " /api/sucursal/<id>, /api/puntoDeRetiro, /api/puntoDeRetiro/<id>," +
-        " /api/nodo/cercano ]"
-        , 200)
+        return self.list(request)
 
 class SucursalAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
     serializer_class = SucursalSerializer

@@ -10,8 +10,14 @@ class DistanciaGeo():
     def distanciaEnMillas(self, ubicacion1, ubicacion2):
         return hs.haversine((ubicacion1.latitud,ubicacion1.longitud),(ubicacion2.latitud,ubicacion2.longitud),unit=Unit.MILES)
 
+    # Nodos size > 0
     def getNodoCercano(self, nodos, ubicacion):
-        for nodo in nodos.iterator():
-            print(nodo.ubicacion)
-            print(ubicacion.longitud)
-            print(ubicacion.latitud)
+        nodoCercano = nodos[0]
+        minDistance = self.distanciaEnMetros(nodoCercano.ubicacion, ubicacion)
+        for nodo in nodos:
+            tmpDistance = self.distanciaEnMetros(nodo.ubicacion, ubicacion)
+            if minDistance > tmpDistance:
+                nodoCercano = nodo
+                minDistance = tmpDistance
+            
+        return nodoCercano

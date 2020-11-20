@@ -28,6 +28,7 @@ urlpatterns = [
     path('sucursal/', views.SucursalAPIView.as_view()),
     path('puntoDeRetiro/', views.PuntoDeRetiroAPIView.as_view()),
     path('puntoDeRetiro/<int:id>/', views.PuntoDeRetiroDetailAPIView.as_view()),
-    path('nodo/cercano/<slug:lat>/<slug:lng>/', views.NearNodeApiView.as_view())
+    path('nodo/', views.NodeAPIView.as_view()),
+    path('nodo/cercano/<lat>/<lng>/', views.NearNodeAPIView.as_view())
 ]
 

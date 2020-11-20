@@ -1,6 +1,6 @@
 from django.test import TestCase
 from sucursal_crud_api.distanciaGeo import DistanciaGeo
-from sucursal_crud_api.models import Ubicacion
+from sucursal_crud_api.models import Ubicacion, Nodo
 
 class DistanciaGeoTest(TestCase):
 
@@ -19,3 +19,29 @@ class DistanciaGeoTest(TestCase):
         distancia = self.calculadoraDistancia.distanciaEnMetros(ubicacionA, ubicacionB)
         delta = 10
         self.assertAlmostEqual(distancia, 1260, None, None, delta)
+
+    def test_obtener_nodo_mas_cercano_de_lista_de_nodos(self):
+        #UNQ (Universidad Nacional de Quilmes)
+        nodoUNQ = Nodo(nombre = "Universidad Nacional de Quilmes", ubicacion = Ubicacion(latitud = -34.706566, longitud = -58.277687))
+
+        #Plaza San Martin (Centro de Quilmes)
+        nodoPSM = Nodo(nombre = "Plaza San Martin (Centro de Quilmes)", ubicacion = Ubicacion(latitud = -34.7200588, longitud = -58.2544012))
+
+        #Mar del Plata (mdq)
+        nodoMDQ = Nodo(nombre = "Mar del Plata", ubicacion = Ubicacion(latitud = -38.005004, longitud = -57.542606))
+        
+        nodos = [nodoMDQ, nodoUNQ, nodoPSM]
+
+        ubicacionCercaDeUNQ = Ubicacion(latitud = -34.7065660, longitud = -58.2776870)
+
+        ubicacionCercaDePSM = Ubicacion(latitud = -34.7200588, longitud = -58.2544012)
+
+        ubicacionCercaDeMDQ = Ubicacion(latitud = -38.0050040, longitud = -57.5426060)
+
+        self.assertEquals(nodoUNQ, self.calculadoraDistancia.getNodoCercano(nodos, ubicacionCercaDeUNQ))
+
+        self.assertEquals(nodoPSM, self.calculadoraDistancia.getNodoCercano(nodos, ubicacionCercaDePSM))
+
+        self.assertEquals(nodoMDQ, self.calculadoraDistancia.getNodoCercano(nodos, ubicacionCercaDeMDQ))
+
+        #self.assertEquals()
