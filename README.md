@@ -30,7 +30,9 @@ More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements
 
 ### [PRECONDITION] Must set up all of envs listed at "list.env" in your system env variables
 
-- Cd to repo main folder and then sucursal_crud
+- Cd to repo main folder 
+
+- Cd to sucursal_crud (top-level)
 
 - Create admin user
 
@@ -40,8 +42,6 @@ More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements
 
 - Run Unit Test
 
-    >Cd to sucursal_crud (top-level)
-
     >python manage.py test
 
 - Run API
@@ -50,15 +50,20 @@ More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements
 
     > Execute script "runAPI.sh"
 
-    > Then go to "http://localhost:8000"
+
+- Use API
+    
+    >Browse to "http://localhost:8000"
 
 (If port 8000 is not free)
 
-> Go to runAPI.sh
+> Open script runAPI.sh
 
 > Change it and save script
 
 (If only updates models objects or do not have folder migrations in sucursal_crud_api)
+
+>Cd to sucursal_crud (top-level) 
 
 >python manage.py makemigrations sucursal_crud_api
 
@@ -90,9 +95,11 @@ More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements
 
     >docker-compose exec web <*command*>
 
+(If you need another container config, edit docker-compose.yml file)
+
 ## High-level explanation of runDocker.sh
 
-- Build image of API 
+- Build image of API
 
 - Execute docker compose and start containers with configuration at docker-compose.yml
 
