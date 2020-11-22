@@ -17,7 +17,8 @@ class SucursalAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.Cre
         logParamInfo(self, request = request)
         return self.create(request)
 
-class SucursalDetailAPIView(generics.GenericAPIView, mixins.UpdateModelMixin, mixins.RetrieveModelMixin):
+class SucursalDetailAPIView(generics.GenericAPIView, mixins.UpdateModelMixin, 
+    mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
     serializer_class = SucursalSerializer
     queryset = Sucursal.objects.all()
 

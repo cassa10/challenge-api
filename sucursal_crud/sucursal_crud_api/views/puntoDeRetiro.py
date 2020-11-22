@@ -16,7 +16,8 @@ class PuntoDeRetiroAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixin
         logParamInfo(self, request = request)
         return self.create(request)
 
-class PuntoDeRetiroDetailAPIView(generics.GenericAPIView, mixins.UpdateModelMixin, mixins.RetrieveModelMixin):
+class PuntoDeRetiroDetailAPIView(generics.GenericAPIView, mixins.UpdateModelMixin, 
+        mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
     serializer_class = PuntoDeRetiroSerializer
     queryset = PuntoDeRetiro.objects.all()
     

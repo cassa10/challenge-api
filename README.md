@@ -160,9 +160,26 @@ Documents all following endpoints and model objects
     
     Gets all puntoDeRetiro objects (no pagination)
 
+    ![imgOkStatus](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/getAllPuntoDeRetiro.png)
+
 - POST
 
     Creates new puntoDeRetiro
+
+    Request Data:
+
+    ![requestData](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/postRequestData.png)
+
+    OK Example:
+    ![requestDataOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/postRDOk.png)
+
+    ![responseOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/postResponseOk.png)
+
+    Error Example:
+
+    ![requestDataError](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/postRDError.png)
+
+    ![responseError](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/postResponseError.png)
 
 ###  /api/puntoDeRetiro/<id\>
 
@@ -170,13 +187,48 @@ Documents all following endpoints and model objects
 
     Gets puntoDeRetiro with requested id
 
-- PUT
+    OK example:
+    ![getOnePuntoDeRetiroOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/getOneOk.png)
 
-    Updates puntoDeRetiro with requested id and data provided
+    Error example:
+    ![getOnePuntoDeRetiroError](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/getOneError.png)
 
 - DELETE
 
     Deletes puntoDeRetiro with requested id (logic deleted not contemplated)
+
+    OK example:
+
+    ![deletePuntoDeRetiroOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/deleteOk.png)
+
+    Error example:
+
+    ![deletePuntoDeRetiroError](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/deleteError.png)
+
+
+- PUT
+
+    Updates puntoDeRetiro with requested id and data provided
+
+    Request Data:
+
+    ![putRequestData](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putRequestData.png)
+
+    OK Example:
+    ![putRequestDataOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putRDOk.png)
+
+    ![putResponseOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putResponseOk.png)
+
+    Error Example:
+
+    ![putRequestDataError](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putRDError.png)
+
+    ![putResponseError](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putResponseError.png)
+
+    Error id not exist:
+    
+    ![putResponseError404](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putError404.png)
+
 
 ## Near Node
 
@@ -185,12 +237,14 @@ Documents all following endpoints and model objects
 - GET
 
     Get the nearest node of requested location (latitude and longitude)
-  
-  OK:
-  ![imgOkStatus](https://github.com/cassa10/challenge-api/blob/main/doc/images/getNodoCercano.png)
-  
-  Error:
-  ![imgErrorStatus](https://github.com/cassa10/challenge-api/blob/main/doc/images/getNodoCercanoERROR.png)
+
+    OK example:
+    
+    ![imgOkStatus](https://github.com/cassa10/challenge-api/blob/main/doc/images/nodo/getNodoCercano.png)
+    
+    Error example:
+
+    ![imgErrorStatus](https://github.com/cassa10/challenge-api/blob/main/doc/images/nodo/getNodoCercanoERROR.png)
 
 
 
