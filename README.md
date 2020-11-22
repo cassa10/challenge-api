@@ -28,7 +28,9 @@ More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements
 
 - Then check "venv" folder must be in repo main folder
 
-### [PRECONDITION] Must set up all of envs listed at "list.env" in your system env variables
+- Add envs in activate script inside venv folder. List of envs are in list.env (change DB values). Example as PS: $env:<*var*>=*value*
+
+### [PRECONDITION] Must set up all of envs listed at "list.env" in your system env variables (change DB values)
 
 - Cd to repo main folder 
 
@@ -121,31 +123,33 @@ Must have admin user for use it
 
 If server is running, you could visit root endpoint API for Swagger DOCs
 
+Documents all following endpoints and model objects
+
 ## Sucursal
 
 ###  /api/sucursal
 
 - GET
     
-    Get all sucursal objects (no pagination)
+    Gets all sucursal objects (no pagination)
 
 - POST 
 
-    Create new sucursal
+    Creates new sucursal
 
 ### /api/sucursal/<id\>
 
 - GET
 
-    Get sucursal with requested id
+    Gets sucursal with requested id
 
 - PUT
 
-    Update sucursal with requested id and data provided
+    Updates sucursal with requested id and data provided
 
 - DELETE
 
-    Delete sucursal with requested id (logic deleted not contemplated)
+    Deletes sucursal with requested id (logic deleted not contemplated)
 
 
 ## Punto de Retiro 
@@ -154,25 +158,25 @@ If server is running, you could visit root endpoint API for Swagger DOCs
 
 - GET
     
-    Get all puntoDeRetiro objects (no pagination)
+    Gets all puntoDeRetiro objects (no pagination)
 
 - POST
 
-    Create new puntoDeRetiro
+    Creates new puntoDeRetiro
 
 ###  /api/puntoDeRetiro/<id\>
 
 - GET
 
-    Get puntoDeRetiro with requested id
+    Gets puntoDeRetiro with requested id
 
 - PUT
 
-    Update puntoDeRetiro with requested id and data provided
+    Updates puntoDeRetiro with requested id and data provided
 
 - DELETE
 
-    Delete puntoDeRetiro with requested id (logic deleted not contemplated)
+    Deletes puntoDeRetiro with requested id (logic deleted not contemplated)
 
 ## Near Node
 
@@ -180,7 +184,7 @@ If server is running, you could visit root endpoint API for Swagger DOCs
 
 - GET
 
-    Desc: Get the nearest node of requested location (latitude and longitude)
+    Get the nearest node of requested location (latitude and longitude)
 
 
 
