@@ -103,6 +103,8 @@ More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements
 
 - Execute docker compose and start containers with configuration at docker-compose.yml
 
+------------
+
 # API Documentation
 
 ## Django administration 
