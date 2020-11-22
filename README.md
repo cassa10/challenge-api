@@ -133,9 +133,27 @@ Documents all following endpoints and model objects
     
     Gets all sucursal objects (no pagination)
 
+    ![imgGetAll](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/getAll.png)
+
 - POST 
 
     Creates new sucursal
+
+    Request Data:
+
+    ![sucursalRequestData](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/postRequestData.png)
+
+    OK Example:
+
+    ![requestDataOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/postRDOk.png)
+
+    ![responseOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/postResponseOk.png)
+
+    Error Example:
+
+    ![requestDataError](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/postRDError.png)
+
+    ![responseError](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/postResponseError.png)
 
 ### /api/sucursal/<id\>
 
@@ -143,13 +161,49 @@ Documents all following endpoints and model objects
 
     Gets sucursal with requested id
 
-- PUT
+    OK example:
 
-    Updates sucursal with requested id and data provided
+    ![getOneSucursalOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/getOneOk.png)
+
+    Error example:
+
+    ![getOneSucursalError](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/getOneError.png)
 
 - DELETE
 
     Deletes sucursal with requested id (logic deleted not contemplated)
+
+    OK example:
+
+    ![deleteSucursalOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/deleteOk.png)
+
+    Error example:
+
+    ![deleteSucursalError](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/deleteError.png)
+
+- PUT
+
+    Updates sucursal with requested id and data provided
+
+    Request Data:
+
+    ![putRequestData](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/putRequestData.png)
+
+    OK Example:
+
+    ![putRequestDataOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/putRDOk.png)
+
+    ![putResponseOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/putResponseOk.png)
+
+    Error Example:
+
+    ![putRequestDataError](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/putRDError.png)
+
+    ![putResponseError](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/putResponseError.png)
+
+    Error id not exist:
+
+    ![putResponseError404](https://github.com/cassa10/challenge-api/blob/main/doc/images/sucursal/putError404.png)
 
 
 ## Punto de Retiro 
@@ -171,6 +225,7 @@ Documents all following endpoints and model objects
     ![requestData](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/postRequestData.png)
 
     OK Example:
+
     ![requestDataOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/postRDOk.png)
 
     ![responseOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/postResponseOk.png)
@@ -188,9 +243,11 @@ Documents all following endpoints and model objects
     Gets puntoDeRetiro with requested id
 
     OK example:
+
     ![getOnePuntoDeRetiroOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/getOneOk.png)
 
     Error example:
+
     ![getOnePuntoDeRetiroError](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/getOneError.png)
 
 - DELETE
@@ -215,6 +272,7 @@ Documents all following endpoints and model objects
     ![putRequestData](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putRequestData.png)
 
     OK Example:
+
     ![putRequestDataOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putRDOk.png)
 
     ![putResponseOK](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putResponseOk.png)
@@ -226,7 +284,7 @@ Documents all following endpoints and model objects
     ![putResponseError](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putResponseError.png)
 
     Error id not exist:
-    
+
     ![putResponseError404](https://github.com/cassa10/challenge-api/blob/main/doc/images/puntoDeRetiro/putError404.png)
 
 

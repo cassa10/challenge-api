@@ -28,13 +28,10 @@ class SucursalDetailAPIView(generics.GenericAPIView, mixins.UpdateModelMixin,
         logParamInfo(self, request = request, id = id)
         return self.retrieve(request)
 
-
     def put(self, request, id):
         logParamInfo(self, request = request, id = id)
-        self.validateId(id)
         return self.update(request, id)
 
     def delete(self, request, id):
         logParamInfo(self, request = request, id = id)
-        self.validateId(id)
         return self.destroy(request, id)
