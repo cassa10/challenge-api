@@ -185,6 +185,12 @@ Documents all following endpoints and model objects
 - GET
 
     Get the nearest node of requested location (latitude and longitude)
+  
+  OK:
+  ![imgOkStatus](https://github.com/cassa10/challenge-api/blob/main/doc/images/getNodoCercano.png)
+  
+  Error:
+  ![imgErrorStatus](https://github.com/cassa10/challenge-api/blob/main/doc/images/getNodoCercanoERROR.png)
 
 
 
