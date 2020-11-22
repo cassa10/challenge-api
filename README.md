@@ -8,42 +8,75 @@
 - Pip
 - Django
 - PostgreSQL
+- psycopg2-binary
 - haversine
 - drf-yasg (Swagger not deprecatted)
+- bash (optional with docker and automated scripts)
 
+More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements.txt)
 
-# Installation
+# Installation venv
 
 - Cd to repo main folder 
+
 - Execute commands in order: 
-    >python -m venv venv
-    >venv\Scripts\activate
-    >pip install django
+    - DEV (Optional)
+        >python -m venv venv
 
-# Set up and Start Server
+# Set up and Start Server without Docker
 
-- Cd to repo main folder and then sucursal_crud.
+### [PRECONDITION] Must set up all of list.env in your system env variables
 
-- Create admin user with command: 
-    >python manage.py createsuperuser"
+- Cd to repo main folder and then sucursal_crud
+
+- Create admin user with command:
+
+    >python manage.py createsuperuser
+
     >Then complete inputs...
 
-- Run Unit Test with command: 
+- Run Unit Test with command:
+
     >python manage.py test --pattern="*Test.py"
 
-- First time commands:
-    >python manage.py makemigrations
+- Execute script "runAPI.sh" in folder where it belongs
+
+## Script runAPI.sh explanation:
+
+- If you have venv installed and folder initialized inside challenge-api folder, script executes with venv 
+
+- If only updates models objects or do not have folder migrations in sucursal_crud_api:
+
+    >python manage.py makemigrations sucursal_crud_api
+
+- Create database entities
+
     >python manage.py migrate
 
 - Start server command:
+    
     >python manage.py runserver
 
 - Then go to "http://localhost:8000"
 
+# Docker
+
+- Execute bash script "runDocker.sh" in folder where it belongs
+
 
 # API Documentation
 
-Optional: If server is running, you could visit every endpoint with UI
+## Django administration 
+
+### /admin
+
+Frontend of django for administrate api and database objects
+
+## Swagger 
+
+### / or /api
+
+If server is running, you could visit root endpoint API for Swagger DOCs and Skip this next docum
 
 ## Sucursal
 

@@ -1,0 +1,14 @@
+# Docker
+
+# Dev containers
+# Postgres:
+docker run -e 'POSTGRES_USER=postgres' -e 'POSTGRES_PASSWORD=postgres' -e 'POSTGRES_DB=sucursal_crud'  -p 5432:5432 -v data-postgresql-sucursal:/var/lib/postgresql/data -d postgres
+
+# pgadmin4:
+docker run -p 80:80 -p 5432:5432 -e 'PGADMIN_DEFAULT_EMAIL=email@domain.com' -e 'PGADMIN_DEFAULT_PASSWORD=root' -d dpage/pgadmin4
+
+# Build the new image and spin up the two containers:
+docker-compose up -d --build
+
+# Run the migrations:
+docker-compose exec web python manage.py migrate --noinput
