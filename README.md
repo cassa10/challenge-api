@@ -4,6 +4,8 @@
 
 # Pre-Requirements and modules
 
+- bash (optional for automated scripts)
+- Docker (optional and *highly recommended*)
 - Python 3 
 - Pip
 - Django
@@ -11,58 +13,88 @@
 - psycopg2-binary
 - haversine
 - drf-yasg (Swagger not deprecatted)
-- bash (optional with docker and automated scripts)
 
 More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements.txt)
 
-# Installation venv
+# Set up and run API locally (without Docker)
+
+## Installation venv (DEV / Optional)
 
 - Cd to repo main folder 
 
-- Execute commands in order: 
-    - DEV (Optional)
-        >python -m venv venv
+- Execute:
 
-# Set up and Start Server without Docker
+    >python -m venv venv
 
-### [PRECONDITION] Must set up all of list.env in your system env variables
+- Then check "venv" folder must be in repo main folder
+
+### [PRECONDITION] Must set up all of envs listed at "list.env" in your system env variables
 
 - Cd to repo main folder and then sucursal_crud
 
-- Create admin user with command:
+- Create admin user
 
     >python manage.py createsuperuser
 
     >Then complete inputs...
 
-- Run Unit Test with command:
+- Run Unit Test
 
-    >python manage.py test --pattern="*Test.py"
+    >Cd to sucursal_crud (top-level)
 
-- Execute script "runAPI.sh" in folder where it belongs
+    >python manage.py test
 
-## Script runAPI.sh explanation:
+- Run API
 
-- If you have venv installed and folder initialized inside challenge-api folder, script executes with venv 
+    > Cd to repo root folder
 
-- If only updates models objects or do not have folder migrations in sucursal_crud_api:
+    > Execute script "runAPI.sh"
 
-    >python manage.py makemigrations sucursal_crud_api
+    > Then go to "http://localhost:8000"
+
+(If port 8000 is not free)
+
+> Go to runAPI.sh
+
+> Change it and save script
+
+(If only updates models objects or do not have folder migrations in sucursal_crud_api)
+
+>python manage.py makemigrations sucursal_crud_api
+
+## High-level explanation of runAPI.sh
+
+- If you have venv installed and folder initialized inside challenge-api folder, script executes with venv. Otherwise wonder if you want to execute without venv.
+
+- Upgrade pip and install dependencies
 
 - Create database entities
 
-    >python manage.py migrate
+- Start server command
 
-- Start server command:
+# Set up and run API with Docker
+
+- Cd to repo main folder
+
+- Execute bash script "runDocker.sh"
+
+- Create admin user (containers must be running)
     
-    >python manage.py runserver
+    >docker-compose exec web python manage.py createsuperuser
 
-- Then go to "http://localhost:8000"
+- Run Unit Test (containers must be running)
 
-# Docker
+    >docker-compose exec web python manage.py test
 
-- Execute bash script "runDocker.sh" in folder where it belongs
+- Execute any command inside containers
 
+    >docker-compose exec web <*command*>
+
+## High-level explanation of runDocker.sh
+
+- Build image of API 
+
+- Execute docker compose and start containers with configuration at docker-compose.yml
 
 # API Documentation
 
@@ -72,39 +104,39 @@ More info [here](https://github.com/cassa10/challenge-api/blob/main/requirements
 
 Frontend of django for administrate api and database objects
 
+Must have admin user for use it
+
 ## Swagger 
 
 ### / or /api
 
-If server is running, you could visit root endpoint API for Swagger DOCs and Skip this next docum
+If server is running, you could visit root endpoint API for Swagger DOCs
 
 ## Sucursal
 
 ###  /api/sucursal
 
 - GET
-
-    Desc: Get all sucursals (paginated not contemplated)
+    
+    Get all sucursal objects (no pagination)
 
 - POST 
 
-    Desc: Create new sucursal
+    Create new sucursal
 
 ### /api/sucursal/<id\>
 
 - GET
 
-    Desc: Get sucursal with requested id
+    Get sucursal with requested id
 
 - PUT
 
-    Desc: Update sucursal with requested id and data provided
+    Update sucursal with requested id and data provided
 
 - DELETE
 
-    Desc: Delete sucursal with requested id (logic deleted not contemplated)
-
-
+    Delete sucursal with requested id (logic deleted not contemplated)
 
 
 ## Punto de Retiro 
@@ -112,24 +144,35 @@ If server is running, you could visit root endpoint API for Swagger DOCs and Ski
 ###  /api/puntoDeRetiro
 
 - GET
+    
+    Get all puntoDeRetiro objects (no pagination)
 
 - POST
+
+    Create new puntoDeRetiro
 
 ###  /api/puntoDeRetiro/<id\>
 
 - GET
 
+    Get puntoDeRetiro with requested id
+
 - PUT
+
+    Update puntoDeRetiro with requested id and data provided
 
 - DELETE
 
-## Query Near Node
+    Delete puntoDeRetiro with requested id (logic deleted not contemplated)
 
-### /api/nodo/cercano/<lat>/<lng>
+## Near Node
+
+### /api/nodo/cercano/<*lat*>/<*lng*>
 
 - GET
-    Parameters: "lat" y "lng"
 
-    Desc: Get the nearest node of requested position
+    Desc: Get the nearest node of requested location (latitude and longitude)
+
+
 
     
